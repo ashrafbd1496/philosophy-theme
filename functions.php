@@ -1,4 +1,8 @@
 <?php
+
+require_once get_theme_file_path( '/inc/tgm.php');
+
+//check the version of css and js
 if ( site_url() =='http://127.0.0.1/wordpress'){
 	define('VERSION', time() );
 }else{
