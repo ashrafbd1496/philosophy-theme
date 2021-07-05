@@ -17,8 +17,11 @@ function philosophy_after_setup(){
 	add_editor_style('/assets/css/editor-style.css');
 	//Register Menu
 	register_nav_menu( 'topmenu',__('Top Menu','philosophy'));
+
+	add_image_size("philosophy-post-preview-square",400,400,true);
 }
 add_action('after_setup_theme','philosophy_after_setup');
+
 function philosophy_assets(){
 	//stylesheets
 	wp_enqueue_style( 'fontaweseom-css',get_theme_file_uri('/assets/css/font-awesome/css/font-awesome.css'),null,VERSION);
