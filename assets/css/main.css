@@ -3623,7 +3623,7 @@ footer h4::after {
  * ------------------------------------------------------------------- */
 .s-content__media {
    padding: 0;
-   margin-top: 4.8rem;
+   /*margin-top: 4.8rem;*/
 }
 
 .s-content__media img {
