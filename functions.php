@@ -88,5 +88,14 @@ function philosophy_widgets() {
 		'before_title'  => '<h3 class="">',
 		'after_title'   => '</h3>',
 	) );
+	register_sidebar( array(
+		'name'          => __( 'Before Footer Right Section', 'philosophy' ),
+		'id'            => 'before-footer-right',
+		'description'   => __( 'before footer right widget.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class=" %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
+	) );
 }
 add_action( 'widgets_init', 'philosophy_widgets' );
