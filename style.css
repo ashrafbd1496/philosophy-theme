@@ -11,3 +11,11 @@ Text Domain: philosophy
 Tags : blog, education,photography,travel,lifestyle,health
 
 */
+.header__logo h1{
+    color:#fff;
+}
+.header__logo h1 a{
+    color:#fff;
+    font-weight:bold;
+    text-decoration: none;
+}

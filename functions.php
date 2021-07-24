@@ -13,6 +13,7 @@ if ( site_url() =='http://127.0.0.1/wordpress'){
 function philosophy_after_setup(){
 	load_theme_textdomain( 'philosophy');
 	add_theme_support('post-thumbnails');
+	add_theme_support('custom-logo');
 	add_theme_support('title-tag');
 	add_theme_support('html5',array('search-form','comment-list'));
 	add_theme_support('post-formats',array('image','gallery','quote','audio','video','link'));
@@ -69,6 +70,15 @@ remove_action( 'term_description','wpautop');
  */
 function philosophy_widgets() {
 	register_sidebar( array(
+		'name'          => __( 'Header Social Icons', 'philosophy' ),
+		'id'            => 'header-social',
+		'description'   => __( 'Widgets in this area will be shown on home page header.', 'philosophy' ),
+		'before_widget' => '<div id="%1$s" class="header_social %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+	register_sidebar( array(
 		'name'          => __( 'About Us Page', 'philosophy' ),
 		'id'            => 'about-us',
 		'description'   => __( 'Widgets in this area will be shown on about us page.', 'philosophy' ),
@@ -124,3 +134,20 @@ function philosophy_widgets() {
 	) );
 }
 add_action( 'widgets_init', 'philosophy_widgets' );
+
+function philosophy_search_form(){
+	$homedir = home_url('/');
+	$label = __('Search for:','philosophy');
+	$button_label =__('Search','philosophy');
+	$newform = <<<FORM
+<form role="search" method="get" class="header__search-form" action="{$homedir}}">
+					<label>
+						<span class="hide-content">{$label}}</span>
+						<input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+					</label>
+					<input type="submit" class="search-submit" value="{$button_label}">
+				</form>
+FORM;
+return $newform;
+}
+add_filter('get_search_form','philosophy_search_form');
