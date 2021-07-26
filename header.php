@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html  class="no-js" <?php language_attributes(); ?> lang="en">
 <head>
 
 	<!--- basic page needs
@@ -19,6 +19,7 @@
 </head>
 
 <body id="top" <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <!-- pageheader
 ================================================== -->

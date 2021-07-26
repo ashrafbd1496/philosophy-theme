@@ -59,7 +59,7 @@
 					foreach ( $tags as $tag ) :
 						$tag_link = get_tag_link( $tag->term_id );
 						?>
-                            <a href='<?php echo $tag_link; ?>' title='<?php echo $tag->name; ?>' class='<?php echo $tag->slug ?>'><?php echo $tag->name ?></a>
+                            <a href='<?php echo wp_kses_post($tag_link); ?>' title='<?php echo wp_kses_post($tag->name); ?>' class='<?php echo wp_kses_post($tag->slug); ?>'><?php echo wp_kses_post($tag->name); ?></a>
 					<?php
 					endforeach;
 					?>

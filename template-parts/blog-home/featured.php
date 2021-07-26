@@ -3,8 +3,6 @@
 		'meta_key'       => 'featured',
 		'meta_value'     => '1',
 		'posts_per_page' => 3,
-
-
 	));
 	$post_data=array();
 	$categories = get_the_category();
@@ -41,7 +39,7 @@
 									<?php echo esc_html($post_data[0]['cat']); ?>
 								</a></span>
 
-							<h1><a href="<?php echo esc_url($post_data[0]['permalink']); ?>" title="">
+							<h1><a href="<?php echo esc_url($post_data[0]['permalink']); ?>" title="<?php echo esc_html($post_data[0]['title']); ?>">
 									<?php echo esc_html($post_data[0]['title']); ?>
 								</a></h1>
 
@@ -53,7 +51,7 @@
 								</a>
 
 								<ul class="entry__meta">
-									<li><a href="<?php echo esc_url($post_data[0]['author_url']); ?>">
+									<li><a class="bypostauthor" href="<?php echo esc_url($post_data[0]['author_url']); ?>">
 											<?php echo esc_html($post_data[0]['author']); ?>
 										</a></li>
 									<li><?php echo esc_html($post_data[0]['date']); ?></li>
@@ -75,7 +73,7 @@
 									<?php echo esc_html($post_data[$i]['cat']); ?>
 								</a></span>
 
-							<h1><a href="<?php echo esc_url($post_data[$i]['permalink']); ?>" title="">
+							<h1><a href="<?php echo esc_url($post_data[$i]['permalink']); ?>" title="<?php echo esc_html($post_data[$i]['title']); ?>">
 									<?php echo esc_html($post_data[$i]['title']); ?>
 								</a></h1>
 
@@ -85,7 +83,7 @@
 								</a>
 
 								<ul class="entry__meta">
-									<li><a href="<?php echo esc_url($post_data[$i]['author_url']); ?>">
+									<li><a class="bypostauthor" href="<?php echo esc_url($post_data[$i]['author_url']); ?>">
 											<?php echo esc_html($post_data[$i]['author']); ?>
 										</a></li>
 									<li><?php echo esc_html($post_data[$i]['date']); ?></li>
