@@ -5,6 +5,7 @@
 <section class="s-content">
     <div class="row narrow">
         <div class="col-full s-content__header" data-aos="fade-up">
+            <?php echo apply_filters('philosophy_text','filter hook test'); ?>
 	        <?php do_action('philosophy_before_category_title'); ?>
             <h1>Category: <?php single_cat_title(); ?></h1>
             <?php do_action('philosophy_after_category_title'); ?>
