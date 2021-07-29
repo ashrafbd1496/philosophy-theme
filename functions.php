@@ -157,3 +157,23 @@ FORM;
 return $newform;
 }
 add_filter('get_search_form','philosophy_search_form');
+
+function text_before_category_title(){
+	echo "<p>Before Title</p>";
+}
+add_action('philosophy_before_category_title','text_before_category_title');
+
+function text_after_category_title(){
+	echo "<p>After Title</p>";
+}
+add_action('philosophy_after_category_title','text_after_category_title');
+
+function beginning_category_page($category_title){
+	if ('Music'==$category_title){
+		$visit_count = get_option('category_music');
+		$visit_count= $visit_count?$visit_count:0;
+		$visit_count++;
+		update_option('category_music',$visit_count);
+	}
+}
+add_action('philosophy_category_page','beginning_category_page');
