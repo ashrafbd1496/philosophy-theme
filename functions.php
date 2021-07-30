@@ -178,10 +178,10 @@ function beginning_category_page($category_title){
 }
 add_action('philosophy_category_page','beginning_category_page');
 
-function capital_text($text){
-	return strtoupper($text);
+function capital_text($param1, $param2){
+	return ucwords($param1).' &#x2192 '.strtoupper($param2);
 }
-add_filter('philosophy_text','capital_text');
+add_filter('philosophy_text','capital_text',10,2);  //here 10 is priority and 2 is param numbers
 
 function pgn_mid_size($size){
 	return 5;
