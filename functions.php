@@ -173,6 +173,12 @@ function text_after_category_title(){
 }
 add_action('philosophy_after_category_title','text_after_category_title');
 
+function text_after_category_title2(){
+	echo "<p>After Title 2</p>";
+}
+add_action('philosophy_after_category_title','text_after_category_title2',8);
+
+
 function beginning_category_page($category_title){
 	if ('Music'==$category_title){
 		$visit_count = get_option('category_music');
@@ -202,3 +208,5 @@ function philosophy_home_banner_class($class_name){
 
 }
 add_filter("philosophy_home_banner_class",'philosophy_home_banner_class');
+
+remove_action('philosophy_after_category_title','text_after_category_title2',8);
