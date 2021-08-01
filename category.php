@@ -5,11 +5,12 @@
 <section class="s-content">
     <div class="row narrow">
         <div class="col-full s-content__header" data-aos="fade-up">
+            <h3><?php  _e('Translatable Text','philosophy') ?></h3>
+            <h4><?php  _e('Lanugage Translate','philosophy') ?></h4>
             <?php echo apply_filters('philosophy_text','filter hook test','second param test'); ?>
 	        <?php do_action('philosophy_before_category_title'); ?>
             <h1>Category: <?php single_cat_title(); ?></h1>
             <?php do_action('philosophy_after_category_title'); ?>
-
             <p class="lead"><?php echo category_description(); ?></p>
 	        <?php do_action('philosophy_after_category_description'); ?>
         </div>

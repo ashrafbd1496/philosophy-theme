@@ -12,7 +12,7 @@ if ( site_url() =='http://127.0.0.1/wordpress'){
 	defined('VERSION',wp_get_theme()->get('Version'));
 }
 function philosophy_after_setup(){
-	load_theme_textdomain( 'philosophy');
+	load_theme_textdomain( 'philosophy',get_theme_file_path('/languages'));
 	add_theme_support('post-thumbnails');
 	add_theme_support('custom-logo');
 	add_theme_support('title-tag');
