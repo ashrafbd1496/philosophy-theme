@@ -219,3 +219,17 @@ function philosophy_home_banner_class($class_name){
 add_filter("philosophy_home_banner_class",'philosophy_home_banner_class');
 
 remove_action('philosophy_after_category_title','text_after_category_title2',8);
+
+//function for collection custom post type link/url
+function philosophy_cpt_slug_link( $post_link, $id ) {
+	$pid = get_post($id);
+	if(is_object($pid) && 'chapter' ==get_post_type($id)){
+		$parent_post_id = get_field('parent_book');
+		$parent_post = get_post($parent_post_id);
+		if($parent_post){
+			$post_link = str_replace('%book%',$parent_post->post_name,$post_link);
+		}
+	}
+	return $post_link;
+}
+add_filter( 'post_type_link', 'philosophy_cpt_slug_link', 1, 2 );
