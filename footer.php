@@ -51,18 +51,30 @@
 
 	<div class="row bottom tags-wrap">
 		<div class="col-full tags">
-			<h3>Tags</h3>
+            <?php
+            $philosophy_tags_heading = apply_filters('philosophy_tags_heading',__('Tags','philosophy'));
+            $philosophy_tags_items = apply_filters('philosophy_tags_items',get_tags());
+            ?>
+
+			<h3><?php echo esc_html($philosophy_tags_heading); ?></h3>
 
 			<div class="tagcloud">
-					<?php
-					$tags = get_tags();
-					foreach ( $tags as $tag ) :
-						$tag_link = get_tag_link( $tag->term_id );
-						?>
-                            <a href='<?php echo wp_kses_post($tag_link); ?>' title='<?php echo wp_kses_post($tag->name); ?>' class='<?php echo wp_kses_post($tag->slug); ?>'><?php echo wp_kses_post($tag->name); ?></a>
-					<?php
-					endforeach;
-					?>
+                <?php
+                   if(is_array($philosophy_tags_items)){
+                       foreach($philosophy_tags_items as $pti){
+                           printf('<a href="%s">%s</a>',get_term_link($pti->term_id),$pti->name);
+                       }
+                   }
+                ?>
+<!--					--><?php
+//					$tags = get_tags();
+//					foreach ( $tags as $tag ) :
+//						$tag_link = get_tag_link( $tag->term_id );
+//						?>
+<!--                            <a href='--><?php //echo wp_kses_post($tag_link); ?><!--' title='--><?php //echo wp_kses_post($tag->name); ?><!--' class='--><?php //echo wp_kses_post($tag->slug); ?><!--'>--><?php //echo wp_kses_post($tag->name); ?><!--</a>-->
+<!--					--><?php
+//					endforeach;
+//					?>
 			</div> <!-- end tagcloud -->
 		</div> <!-- end tags -->
 	</div> <!-- end tags-wrap -->
