@@ -7,10 +7,17 @@ $philosophy_query_args = array(
 	'post_type'=>'book',
 	'post_per_page'=>-1,
 	'tax_query'=>array(
+		'relation'=>'AND',
 		array(
 			'taxonomy'=>'language',
 			'field'=>'slug',
-			'terms'=>['english','bangla','arabic'],
+			'terms'=>['english'],
+		),
+		array(
+			'taxonomy'=>'language',
+			'field'=>'slug',
+			'terms'=>['bangla'],
+			'operator'=>'NOT IN'
 		)
 	),
 );
