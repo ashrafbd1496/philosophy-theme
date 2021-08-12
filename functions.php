@@ -220,6 +220,8 @@ add_filter("philosophy_home_banner_class",'philosophy_home_banner_class');
 
 remove_action('philosophy_after_category_title','text_after_category_title2',8);
 
+
+
 //function for collection custom post type link/url
 function philosophy_cpt_slug_link( $post_link, $id ) {
 	$pid = get_post($id);
@@ -230,9 +232,21 @@ function philosophy_cpt_slug_link( $post_link, $id ) {
 			$post_link = str_replace('%book%',$parent_post->post_name,$post_link);
 		}
 	}
+//	if(is_object($pid) && 'book'==get_post_type($pid)){
+//		$genre = wp_get_post_terms($pid->ID,'genre');
+//		if(is_array($genre) && count($genre)>0){
+//			$slug = $genre[0]->slug;
+//		$post_link = str_replace('%genre%',$slug,$post_link);
+//		}else{
+//		$slug = 'generic';
+//		$post_link = str_replace('%genre%',$slug,$post_link);
+//	}
+//	}
 	return $post_link;
 }
+
 add_filter( 'post_type_link', 'philosophy_cpt_slug_link', 1, 2 );
+
 
 function philosophy_tags_heading_language($title){
 	if(is_post_type_archive('book') || is_tax('language')){
