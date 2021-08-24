@@ -2,6 +2,10 @@
 
 require_once get_theme_file_path( '/inc/tgm.php');
 require_once get_theme_file_path( '/inc/attachments.php');
+require_once get_theme_file_path( '/inc/admin-options.php');
+require_once get_theme_file_path( '/inc/nav-menu-options.php');
+//require_once get_theme_file_path( '/inc/Philosophpy_options.php');
+require_once get_theme_file_path( '/inc/cf-metabox.php');
 //require_once get_theme_file_path( '/widgets/social-icons-widget2.php');
 
 if ( ! isset( $content_width ) ) $content_width = 960;
@@ -36,6 +40,7 @@ add_action('after_setup_theme','philosophy_after_setup');
 function philosophy_assets(){
 	//stylesheets
 	wp_enqueue_style( 'fontaweseom-css',get_theme_file_uri('/assets/css/font-awesome/css/font-awesome.css'),null,VERSION);
+	wp_enqueue_style( 'fa5', 'https://use.fontawesome.com/releases/v5.13.0/css/all.css', array(), '5.13.0', 'all' );
 	wp_enqueue_style( 'fonts-css',get_theme_file_uri('/assets/css/fonts.css'),null,1.0);
 	wp_enqueue_style( 'base-css',get_theme_file_uri('/assets/css/base.css'),null,1.0);
 	wp_enqueue_style( 'vendor-css',get_theme_file_uri('/assets/css/vendor.css'),null,1.0);

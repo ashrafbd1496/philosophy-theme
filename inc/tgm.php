@@ -81,6 +81,12 @@ function philosophy_register_required_plugins() {
 			'slug'      => 'contact-form-7',
 			'required'  => false,
 		),
+		array(
+			'name'      => 'Codestar',
+			'slug'      => 'codestar-framework',
+			'required'  => false,
+			'source'  => 'https://github.com/Codestar/codestar-framework/archive/refs/heads/master.zip',
+		),
 
 
 	);

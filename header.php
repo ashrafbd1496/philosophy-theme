@@ -29,21 +29,44 @@
 		<div class="header__content row">
 
 			<div class="header__logo">
-				<a class="logo" href="<?php home_url('/'); ?>">
-					<?php
-                        if(has_custom_logo()){
-                           the_custom_logo();
-                        }else{
-                            echo "<h1><a href='".home_url("/")."'>". get_bloginfo('name')."</a></h1>";
-                        }
-                    ?>
-				</a>
-			</div> <!-- end header__logo -->
-			<?php
-			if ( is_active_sidebar( 'header-social' ) ) {
-				dynamic_sidebar( 'header-social' );
-			}
+			<?php 	
+				$options = get_option('philosophy_options');
+
+				$logo = $options['logo'];
 			?>
+			<img src="<?php echo $logo['url']; ?>" alt="Philosophy">
+				
+			</div> <!-- end header__logo -->
+
+			<!--Start header Social  -->
+
+			<?php 
+			
+			
+			
+			?>
+			<ul class="header__social">
+                    
+						<?php 
+						$options = get_option('philosophy_options');
+
+						$social_links = $options['social_link_group'];
+
+						if (is_array($social_links) || is_object($social_links))
+						{
+							foreach ($social_links as $social_icon_link)
+							
+							{
+								?>
+								<li><a href="<?php echo $social_icon_link['social_link']['url']; ?>"><i class="<?php echo $social_icon_link['social_link_icon']; ?>"></i></a></li>
+								<?php
+							}
+						}							
+						
+						?>
+                        
+                
+                </ul> 
 			 <!-- end header__social -->
 
 			<a class="header__search-trigger" href="#0"></a>
